@@ -1,0 +1,14 @@
+server:
+  port: 80
+
+feign:
+  hystrix:
+    enabled: true
+
+#配置Eureka注册中心
+eureka:
+  client:
+    register-with-eureka: false #表示向Euraka注册中心注册自己
+    service-url: #监控页面
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      fetch-registry: false  #为true时的意思是表示检索注册中心的所有服务。如果为false则无法发现服务

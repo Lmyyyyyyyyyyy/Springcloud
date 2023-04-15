@@ -1,0 +1,9 @@
+#系统级的配置
+spring:
+  cloud:
+    config:
+      name: config-eureka #需要从git上读取的资源，不需要后缀
+      profile: dev
+      label: main  #加入这个配置就可以正常请求到git上的配置文件了
+      uri: http://localhost:3344
+

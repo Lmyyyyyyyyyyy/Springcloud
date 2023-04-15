@@ -1,0 +1,31 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: springcloud-config-server
+  # 连接码云远程仓库
+  cloud:
+    config:
+      server:
+        git:
+          # 注意是https的而不是ssh
+          uri: https://github.com/Lmyyyyyyyyyyy/spirngcloud-config.git
+          default-label: main  #加入这个配置就可以正常请求到git上的配置文件了
+          # 通过 config-server可以连接到git，访问其中的资源以及配置~
+          username: Lmyyyyyyyyyyy #git仓库帐号
+          password: Qq4458928., #git仓库密码
+          force-pull: true
+
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+
+# 不加这个配置会报Cannot execute request on any known server 这个错：连接Eureka服务端地址不对
+# 或者直接注释掉eureka依赖 这里暂时用不到eureka
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
